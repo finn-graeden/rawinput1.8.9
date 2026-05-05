@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = "https://maven.minecraftforge.net" }
+        maven { url = "https://maven.minecraftforge.net/forge/" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version          = "1.2.0"
+group            = "com.rawinput"
+archivesBaseName = "RawInputMod"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    provided files('/home/finng/.gradle/caches/minecraft/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/stable/22/forgeBin-1.8.9-11.15.1.2318-1.8.9.jar')  // ← new
+}
+
+minecraft {
+    version  = "1.8.9-11.15.1.2318-1.8.9"
+    runDir   = "run"
+    mappings = "stable_22"
+}
+
+// No extra dependencies — pure Java + Forge API only.
+// Removing JNA eliminates the version conflict with Essential/Patcher.
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

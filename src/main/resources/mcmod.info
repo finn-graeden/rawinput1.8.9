@@ -1,0 +1,15 @@
+[
+    {
+        "modid"       : "rawinputmod",
+        "name"        : "Raw Input Mod",
+        "description" : "Bypasses OS mouse acceleration on Linux by reading /dev/input/mice directly, matching 1.21 raw-input behaviour in 1.8.9.",
+        "version"     : "${version}",
+        "mcversion"   : "${mcversion}",
+        "url"         : "",
+        "authorList"  : [],
+        "credits"     : "",
+        "logoFile"    : "",
+        "screenshots" : [],
+        "dependencies": []
+    }
+]
