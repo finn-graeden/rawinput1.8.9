@@ -1,3 +1,6 @@
+NOTICE: This mod was coded using a LLM, as I am completely unfamiliar with 1.8.9 and forge modding, and this was a
+mod borne from personal necessity. I don't think there are any bugs, but feel free to fork and fix if needed.
+
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
